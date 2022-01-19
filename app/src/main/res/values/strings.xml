@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">GachiClicker</string>
+    <string name="cum">Cum</string>
+    <string name="shop">Shop</string>
+    <string name="settings">Settings</string>
+    <string name="events">Events</string>
+    <string name="tch_works">Ведутся технические penetration</string>
+    <string name="cps">Cum per second: </string>
+    <string name="current_cum">Current Cum: </string>
+    <string name="cum_img">cum_img</string>
+    <string name="shop_img">shop_img</string>
+    <string name="current_cpc">Current cpc: </string>
+    <string name="buy">BUY</string>
+</resources>
