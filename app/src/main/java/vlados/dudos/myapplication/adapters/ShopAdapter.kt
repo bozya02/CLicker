@@ -44,6 +44,7 @@ class ShopAdapter(private val context: Context, private val shopList: List<ShopI
                         updateCPC(1)
                         updateCurrentCum(-shopList[position].price)
 
+                        shopList[0].price = priceCPC
                         b.priceTxt.text = priceCPC.toString() + " cum"
                     }
                     else Toast.makeText(context, "У Fucking Slave недостаточно cum", Toast.LENGTH_SHORT).show()
