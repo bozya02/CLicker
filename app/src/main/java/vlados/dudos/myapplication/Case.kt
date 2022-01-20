@@ -31,5 +31,6 @@ object Case {
         priceCPC = (priceCPC * cpcCoef).toInt()
         App.dm.setPriceCPC(priceCPC)
     }
-    var shopList: List<ShopItem> = listOf(ShopItem("", "Мassаж простаты", "+1 к cum за клик", 0, priceCPC))
+    var shopList: List<ShopItem> = listOf(ShopItem("", "Мassаж простаты", "+1 cum за клик", 0, priceCPC),
+    ShopItem("https://www.seekpng.com/png/full/12-120961_up-arrow-png-picture-up-arrow-png.png", nameItem = "Улучшение DICK", "+5 cum в секунду", 5, 500))
 }
