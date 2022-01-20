@@ -1,4 +1,4 @@
-package vlados.dudos.myapplication.fragments
+package vlados.dudos.myapplication.common.ui.fragments
 
 import android.media.AudioManager
 import android.media.SoundPool
@@ -7,10 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import vlados.dudos.myapplication.Case.cumPerClick
-import vlados.dudos.myapplication.Case.cumPerSecond
-import vlados.dudos.myapplication.Case.currentCum
-import vlados.dudos.myapplication.Case.updateCurrentCum
+import vlados.dudos.myapplication.common.Case.cumPerClick
+import vlados.dudos.myapplication.common.Case.updateCurrentCum
 import vlados.dudos.myapplication.GameActivity
 import vlados.dudos.myapplication.R
 import vlados.dudos.myapplication.databinding.FragmentGameBinding

@@ -1,7 +1,7 @@
-package vlados.dudos.myapplication
+package vlados.dudos.myapplication.common
 
 import vlados.dudos.myapplication.app.App
-import vlados.dudos.myapplication.models.ShopItem
+import vlados.dudos.myapplication.common.ui.models.ShopItem
 
 object Case {
     var currentCum: Int = App.dm.getCurrentCum()
@@ -16,16 +16,16 @@ object Case {
     var priceCPC: Int = App.dm.getPriceCPC()
 
     fun updateCPS(num: Int){
-        cumPerSecond+=num
+        cumPerSecond +=num
         App.dm.setCPS(cumPerSecond)
     }
     fun updateCPC(num: Int){
-        cumPerClick+=num
+        cumPerClick +=num
         App.dm.setCPC(cumPerClick)
         updatePriceCPC()
     }
     fun updateCurrentCum(num: Int){
-        currentCum+=num
+        currentCum +=num
         App.dm.setCurrentCum(currentCum)
     }
 

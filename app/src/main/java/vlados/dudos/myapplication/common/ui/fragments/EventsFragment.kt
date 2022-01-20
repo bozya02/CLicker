@@ -1,4 +1,4 @@
-package vlados.dudos.myapplication.fragments
+package vlados.dudos.myapplication.common.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater

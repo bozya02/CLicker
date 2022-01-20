@@ -1,4 +1,4 @@
-package vlados.dudos.myapplication.models
+package vlados.dudos.myapplication.common.ui.models
 
 data class ShopItem (
     var img: String,
