@@ -44,7 +44,7 @@ class LogActivity : AppCompatActivity() {
         onClick()
         Handler().postDelayed({
             if (App.dm.getBioState()){
-                openBiomtery()
+                openBiometry()
             }
             else successfulEnter()
       }, 1000)
@@ -91,19 +91,19 @@ class LogActivity : AppCompatActivity() {
             true
         } else true
     }
-    private fun openBiomtery(){
+    private fun openBiometry(){
         val biometricPrompt = BiometricPrompt.Builder(this)
             .setTitle("Use your DickFinger")
             .setSubtitle("Authentication is required")
             .setDescription("It`s gym rules")
-            .setNegativeButton("Cancel", this.mainExecutor, { di, i ->
+            .setNegativeButton("Cancel", this.mainExecutor, { dialog, i ->
                 notifyUser("Authentication cancelled")
             }).build()
         biometricPrompt.authenticate(getCancellationSignal(), mainExecutor, authenticationCallback)
     }
     private fun onClick(){
         b.imgBilly.setOnClickListener {
-            openBiomtery()
+            openBiometry()
         }
     }
 }
