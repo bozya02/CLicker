@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import vlados.dudos.myapplication.databinding.ActivityGameBinding
 import vlados.dudos.myapplication.fragments.EventsFragment
 import vlados.dudos.myapplication.fragments.GameFragment
+import vlados.dudos.myapplication.fragments.SettingsFragment
 import vlados.dudos.myapplication.fragments.ShopFragment
 
 class GameActivity : AppCompatActivity() {
@@ -15,9 +16,11 @@ class GameActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        fragmentTransaction(GameFragment())
 
         b = ActivityGameBinding.inflate(layoutInflater)
+        updateDate()
+        fragmentTransaction(GameFragment())
+
         setContentView(b.root)
 
         b.bottomNavigation.setOnItemSelectedListener { item ->
@@ -34,7 +37,7 @@ class GameActivity : AppCompatActivity() {
                     fragmentTransaction(EventsFragment())
                 }
                 R.id.settings -> {
-                    fragmentTransaction(EventsFragment())
+                    fragmentTransaction(SettingsFragment())
                 }
 
             }
@@ -46,6 +49,21 @@ class GameActivity : AppCompatActivity() {
     private fun fragmentTransaction(fmt: Fragment){
         supportFragmentManager.beginTransaction().replace(R.id.fragment_holder, fmt).addToBackStack(null)
             .commit()
+    }
+    fun updateDate(){
+        b.textCps.text = getString(R.string.cps) + Case.cumPerSecond.toString()
+        b.yourCum.text = getString(R.string.current_cum) + Case.currentCum.toString()
+        b.yourCPC.text = getString(R.string.current_cpc) + Case.cumPerClick.toString()
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+
+        if (b.bottomNavigation.selectedItemId != R.id.click){
+            b.bottomNavigation.selectedItemId = R.id.click
+            fragmentTransaction(GameFragment())
+        }
+        else finishAffinity()
     }
 }
 

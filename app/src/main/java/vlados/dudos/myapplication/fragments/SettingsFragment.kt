@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import vlados.dudos.myapplication.R
+import vlados.dudos.myapplication.app.App
 import vlados.dudos.myapplication.databinding.FragmentEventsBinding
 import vlados.dudos.myapplication.databinding.FragmentSettingsBinding
 
@@ -20,9 +21,25 @@ class SettingsFragment : Fragment() {
     ): View? {
         b = FragmentSettingsBinding.bind(
             inflater.inflate(
-                R.layout.fragment_events,container, false
+                R.layout.fragment_settings,container, false
             )
         )
         return b.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setSwitchState()
+        onSwitch()
+
+    }
+
+    private fun onSwitch(){
+        b.biometrySwitch.setOnCheckedChangeListener { buttonView, isChecked ->
+            App.dm.saveBiometryState(isChecked)
+        }
+    }
+    private fun setSwitchState(){
+        b.biometrySwitch.isChecked = App.dm.getBioState()
     }
 }

@@ -7,18 +7,22 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import vlados.dudos.myapplication.Case
-import vlados.dudos.myapplication.Case.cumPerSecond
 import vlados.dudos.myapplication.Case.currentCum
+import vlados.dudos.myapplication.Case.dickPrice
 import vlados.dudos.myapplication.Case.priceCPC
 import vlados.dudos.myapplication.Case.updateCPC
 import vlados.dudos.myapplication.Case.updateCPS
 import vlados.dudos.myapplication.Case.updateCurrentCum
+import vlados.dudos.myapplication.Case.updateDick
 import vlados.dudos.myapplication.R
 import vlados.dudos.myapplication.databinding.ShopItemBinding
 import vlados.dudos.myapplication.models.ShopItem
 
-class ShopAdapter(private val context: Context, private val shopList: List<ShopItem>) : RecyclerView.Adapter<ShopAdapter.ViewHolder>(){
+class ShopAdapter(
+    private val context: Context,
+    private val shopList: List<ShopItem>,
+    val onClickListener: OnClickListener
+) : RecyclerView.Adapter<ShopAdapter.ViewHolder>() {
 
     lateinit var b: ShopItemBinding
 
@@ -38,23 +42,29 @@ class ShopAdapter(private val context: Context, private val shopList: List<ShopI
         b.priceTxt.text = shopList[position].price.toString() + " cum"
 
         b.buyTxt.setOnClickListener {
-            when(position){
-                0 -> {
-                    if (currentCum >= shopList[position].price) {
+            if (currentCum >= shopList[position].price) {
+                updateCurrentCum(-shopList[position].price)
+                when (position) {
+                    0 -> {
                         updateCPC(1)
-                        updateCurrentCum(-shopList[position].price)
-
-                        shopList[0].price = priceCPC
-                        b.priceTxt.text = priceCPC.toString() + " cum"
+                        shopList[position].price = priceCPC
                     }
-                    else Toast.makeText(context, "У Fucking Slave недостаточно cum", Toast.LENGTH_SHORT).show()
+                    else -> {
+                        updateCPS(shopList[position].cpsBuff)
+                        updateDick()
+                    }
                 }
-                else -> updateCPS(shopList[position].cpsBuff)
-            }
+                onClickListener.click(shopList[position])
+            } else Toast.makeText(context, "У Fucking Slave недостаточно cum", Toast.LENGTH_SHORT).show()
         }
     }
+
 
     override fun getItemCount(): Int = shopList.size
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
+
+    interface OnClickListener {
+        fun click(data: ShopItem)
+    }
 }
