@@ -9,4 +9,5 @@
     <color name="nawbar_back">@color/white_main</color>
     <color name="icon_tint">@color/white_main</color>
     <color name="grey_text">#FF0F0F0F</color>
+    <color name="transparent">#00FFFFFF</color>
 </resources>

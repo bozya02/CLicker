@@ -16,8 +16,9 @@
         android:theme="@style/Theme.GachiClicker"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".common.ui.LogActivity"
-            android:exported="true" >
+            android:name=".common.ui.activity.LogActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,8 +26,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".GameActivity"
-            android:exported="true">
+            android:name=".common.ui.activity.GameActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
         </activity>
     </application>
 

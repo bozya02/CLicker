@@ -14,6 +14,7 @@ import vlados.dudos.myapplication.common.Case.updateCPS
 import vlados.dudos.myapplication.common.Case.updateCurrentCum
 import vlados.dudos.myapplication.common.Case.updateDick
 import vlados.dudos.myapplication.R
+import vlados.dudos.myapplication.common.Case.updateRikardo
 import vlados.dudos.myapplication.databinding.ShopItemBinding
 import vlados.dudos.myapplication.common.ui.models.ShopItem
 
@@ -31,6 +32,9 @@ class ShopAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         b = ShopItemBinding.bind(holder.itemView)
 
+        if (position == 2)
+            b.imgShopItem.setColorFilter(R.color.transparent)
+
         Glide.with(b.imgShopItem)
             .load(shopList[position].img)
             .error(R.drawable.block)
@@ -40,6 +44,7 @@ class ShopAdapter(
         b.txtDescShopItem.text = shopList[position].description
         b.priceTxt.text = shopList[position].price.toString() + " cum"
 
+
         b.buyTxt.setOnClickListener {
             if (currentCum >= shopList[position].price) {
                 updateCurrentCum(-shopList[position].price)
@@ -48,11 +53,17 @@ class ShopAdapter(
                         updateCPC(1)
                         shopList[position].price = priceCPC
                     }
-                    else -> {
-                        updateCPS(shopList[position].cpsBuff)
+                    1 -> {
                         updateDick()
                     }
+                    2 ->{
+                        updateRikardo()
+                    }
+
+
+
                 }
+                updateCPS(shopList[position].cpsBuff)
                 onClickListener.click(shopList[position])
             } else Toast.makeText(context, "У Fucking Slave недостаточно cum", Toast.LENGTH_SHORT).show()
         }

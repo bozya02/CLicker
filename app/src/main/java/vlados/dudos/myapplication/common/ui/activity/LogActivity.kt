@@ -1,4 +1,4 @@
-package vlados.dudos.myapplication.common.ui
+package vlados.dudos.myapplication.common.ui.activity
 
 import android.app.KeyguardManager
 import android.content.Context
@@ -11,7 +11,7 @@ import android.os.CancellationSignal
 import android.os.Handler
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
-import vlados.dudos.myapplication.GameActivity
+import vlados.dudos.myapplication.common.ui.activity.GameActivity
 import vlados.dudos.myapplication.app.App
 import vlados.dudos.myapplication.databinding.ActivityLogBinding
 
@@ -75,6 +75,7 @@ class LogActivity : AppCompatActivity() {
 
         if (!keyguardManager.isKeyguardSecure) {
             notifyUser("Fingerprint authentication has`t been enabled in settings")
+            App.dm.saveBiometryState(false)
             return false
         }
 

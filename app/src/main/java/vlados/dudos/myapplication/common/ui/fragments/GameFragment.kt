@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import vlados.dudos.myapplication.common.Case.cumPerClick
 import vlados.dudos.myapplication.common.Case.updateCurrentCum
-import vlados.dudos.myapplication.GameActivity
+import vlados.dudos.myapplication.common.ui.activity.GameActivity
 import vlados.dudos.myapplication.R
 import vlados.dudos.myapplication.databinding.FragmentGameBinding
 
@@ -34,7 +34,7 @@ class GameFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        soundPool = SoundPool(1, AudioManager.STREAM_MUSIC, 0)
+        soundPool = SoundPool(2, AudioManager.STREAM_MUSIC, 0)
         soundPool.load(context, R.raw.wewe, 1)
         onClick()
     }
