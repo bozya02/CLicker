@@ -2,12 +2,15 @@ package vlados.dudos.myapplication.common.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.fragment.app.Fragment
 import io.reactivex.Observable
 import vlados.dudos.myapplication.R
+import vlados.dudos.myapplication.common.Case.clicks
 import vlados.dudos.myapplication.common.Case.cumPerClick
 import vlados.dudos.myapplication.common.Case.cumPerSecond
 import vlados.dudos.myapplication.common.Case.currentCum
+import vlados.dudos.myapplication.common.Case.cutNum
 import vlados.dudos.myapplication.common.Case.saveData
 import vlados.dudos.myapplication.common.Case.updateCurrentCum
 import vlados.dudos.myapplication.databinding.ActivityGameBinding
@@ -15,11 +18,13 @@ import vlados.dudos.myapplication.common.ui.fragments.EventsFragment
 import vlados.dudos.myapplication.common.ui.fragments.GameFragment
 import vlados.dudos.myapplication.common.ui.fragments.SettingsFragment
 import vlados.dudos.myapplication.common.ui.fragments.ShopFragment
+import java.math.RoundingMode
+import java.text.DecimalFormat
 import java.util.concurrent.TimeUnit
+import kotlin.math.pow
 
 class GameActivity : AppCompatActivity() {
 
-    private var numsMap = mapOf(1 to "M", 1000 to "B", 1000000 to "T", 1000000000 to "Qua")
     private lateinit var b: ActivityGameBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,30 +36,36 @@ class GameActivity : AppCompatActivity() {
         fragmentTransaction(GameFragment())
         setContentView(b.root)
 
-        cpsThread()
-
         b.bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
 
                 R.id.click -> {
                     fragmentTransaction(GameFragment())
+                    changeInfoVisibility(View.VISIBLE)
                 }
 
                 R.id.shop -> {
                     fragmentTransaction(ShopFragment())
+                    changeInfoVisibility(View.VISIBLE)
                 }
                 R.id.events -> {
                     fragmentTransaction(EventsFragment())
+                    changeInfoVisibility(View.GONE)
                 }
                 R.id.settings -> {
                     fragmentTransaction(SettingsFragment())
+                    changeInfoVisibility(View.GONE)
                 }
 
             }
             true
         }
+    }
 
+    override fun onStart() {
+        super.onStart()
 
+        cpsThread()
     }
 
     override fun onStop() {
@@ -67,9 +78,7 @@ class GameActivity : AppCompatActivity() {
             .commit()
     }
     fun updateDate(){
-
-
-        b.yourCum.text = getString(R.string.current_cum) + currentCum
+        b.yourCum.text = getString(R.string.current_cum) + cutNum(currentCum.toLong())
         b.textCps.text = getString(R.string.cps) + cumPerSecond
         b.yourCPC.text = getString(R.string.current_cpc) + cumPerClick
     }
@@ -90,8 +99,13 @@ class GameActivity : AppCompatActivity() {
             .subscribe()
     }
     private fun cpsSaving(){
+        clicks = 13
         updateCurrentCum(cumPerSecond)
         updateDate()
+    }
+    private fun changeInfoVisibility(int: Int)
+    {
+        b.constraintInfo.visibility = int
     }
 }
 

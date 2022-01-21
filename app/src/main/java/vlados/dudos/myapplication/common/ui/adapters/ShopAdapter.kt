@@ -14,6 +14,7 @@ import vlados.dudos.myapplication.common.Case.updateCPS
 import vlados.dudos.myapplication.common.Case.updateCurrentCum
 import vlados.dudos.myapplication.common.Case.updateDick
 import vlados.dudos.myapplication.R
+import vlados.dudos.myapplication.common.Case.cutNum
 import vlados.dudos.myapplication.common.Case.updateRikardo
 import vlados.dudos.myapplication.databinding.ShopItemBinding
 import vlados.dudos.myapplication.common.ui.models.ShopItem
@@ -42,7 +43,7 @@ class ShopAdapter(
 
         b.txtNameShopItem.text = shopList[position].nameItem
         b.txtDescShopItem.text = shopList[position].description
-        b.priceTxt.text = shopList[position].price.toString() + " cum"
+        b.priceTxt.text = "${cutNum(shopList[position].price.toLong())} cum"
 
 
         b.buyTxt.setOnClickListener {
@@ -59,9 +60,6 @@ class ShopAdapter(
                     2 ->{
                         updateRikardo()
                     }
-
-
-
                 }
                 updateCPS(shopList[position].cpsBuff)
                 onClickListener.click(shopList[position])

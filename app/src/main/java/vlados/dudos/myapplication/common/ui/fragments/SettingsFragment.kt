@@ -37,8 +37,12 @@ class SettingsFragment : Fragment() {
         b.biometrySwitch.setOnCheckedChangeListener { buttonView, isChecked ->
             App.dm.saveBiometryState(isChecked)
         }
+        b.soundSwitch.setOnCheckedChangeListener { compoundButton, isChecked ->
+            App.dm.setSoundState(isChecked)
+        }
     }
     private fun setSwitchState(){
         b.biometrySwitch.isChecked = App.dm.getBioState()
+        b.soundSwitch.isChecked = App.dm.getSoundState()
     }
 }

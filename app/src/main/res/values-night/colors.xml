@@ -8,5 +8,5 @@
     <color name="main_text_color">@color/white_main</color>
     <color name="nawbar_back">@color/black_main</color>
     <color name="icon_tint">@color/black_main</color>
-    <color name="grey_text">#FFF0F0F0</color>
+    <color name="grey_text">#FAF0F0F0</color>
 </resources>
