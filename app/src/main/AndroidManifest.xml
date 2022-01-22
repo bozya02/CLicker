@@ -17,7 +17,8 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".common.ui.activity.BossActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".common.ui.activity.LogActivity"
             android:exported="true"
@@ -31,7 +32,7 @@
         <activity
             android:name=".common.ui.activity.GameActivity"
             android:exported="true"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
