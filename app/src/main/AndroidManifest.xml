@@ -16,6 +16,9 @@
         android:theme="@style/Theme.GachiClicker"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".common.ui.activity.BossActivity"
+            android:exported="true" />
+        <activity
             android:name=".common.ui.activity.LogActivity"
             android:exported="true"
             android:screenOrientation="portrait">
@@ -28,8 +31,7 @@
         <activity
             android:name=".common.ui.activity.GameActivity"
             android:exported="true"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
