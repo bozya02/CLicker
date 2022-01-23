@@ -46,7 +46,7 @@ class GameFragment : Fragment() {
             if (clicks > 0) {
                 clicks--
                 makeSound()
-                updateCurrentCum(cumPerClick)
+                updateCurrentCum(cumPerClick.toLong())
                 (activity as GameActivity).updateDate()
             }
         }

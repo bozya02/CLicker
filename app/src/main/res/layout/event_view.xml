@@ -65,7 +65,19 @@
         app:layout_constraintBottom_toTopOf="@+id/nameEvent_txt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/superPower_txt"
+        app:layout_constraintVertical_bias="1.0" />
 
+    <TextView
+        android:id="@+id/superPower_txt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/main_text_color"
+        android:textSize="18sp"
+        android:text="@string/super_power_20_misses"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textAlignment="center"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

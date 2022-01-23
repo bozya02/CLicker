@@ -5,5 +5,5 @@ data class ShopItem (
     var nameItem: String,
     var description: String,
     var cpsBuff: Int,
-    var price: Int
+    var price: Long
 )

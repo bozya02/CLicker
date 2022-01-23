@@ -16,11 +16,11 @@ object Case {
     var clicks: Int = 13
 
     var currentCum: Long = App.dm.getCurrentCum()
-    var cumPerClick:Int = App.dm.getCPC()
-    var cumPerSecond:Int = App.dm.getCPS()
-    private var dickPrice: Int = App.dm.getPriceDick()
-    private var rikardoPrice: Int = App.dm.getRikardoPrice()
-    private var cocktailPrice: Int = App.dm.getCocktailPrice()
+    var cumPerClick: Int = App.dm.getCPC()
+    var cumPerSecond:Long = App.dm.getCPS()
+    private var dickPrice: Long = App.dm.getPriceDick()
+    private var rikardoPrice: Long = App.dm.getRikardoPrice()
+    private var cocktailPrice: Long = App.dm.getCocktailPrice()
 
     private const val cpcCoef: Double = 1.1
     private const val cpsCoef: Double = 1.2
@@ -28,7 +28,7 @@ object Case {
     //Bosses
     var bossRikardo = Boss(1000, 10, true, 300)
 
-    var priceCPC: Int = App.dm.getPriceCPC()
+    var priceCPC: Long = App.dm.getPriceCPC()
 
     fun updateCPS(num: Int){
         if (cumPerSecond + num >=0)
@@ -41,25 +41,25 @@ object Case {
         else cumPerClick = 1
         updatePriceCPC()
     }
-    fun updateCurrentCum(num: Int){
+    fun updateCurrentCum(num: Long){
         currentCum +=num
     }
 
     private fun updatePriceCPC(){
-        priceCPC = (priceCPC * cpcCoef).toInt()
+        priceCPC = (priceCPC * cpcCoef).toLong()
     }
 
     fun updateDick(){
-        dickPrice = (dickPrice * cpsCoef).toInt()
+        dickPrice = (dickPrice * cpsCoef).toLong()
         shopList[1].price = dickPrice
     }
 
     fun updateRikardo(){
-        rikardoPrice = (rikardoPrice * cpsCoef).toInt()
+        rikardoPrice = (rikardoPrice * cpsCoef).toLong()
         shopList[2].price = rikardoPrice
     }
     fun updateCocktail(){
-        cocktailPrice = (cocktailPrice * cpsCoef).toInt()
+        cocktailPrice = (cocktailPrice * cpsCoef).toLong()
         shopList[3].price = cocktailPrice
     }
     fun saveData(){

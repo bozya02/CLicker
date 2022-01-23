@@ -4,6 +4,7 @@
     <color name="white">#FFFEFEFE</color>
     <color name="black_main">#FF020204</color>
     <color name="white_main">#FFFFF5EE</color>
+    <color name="cardBgColor">#FFFAFAFA</color>
 
     <color name="main_text_color">@color/black_main</color>
     <color name="nawbar_back">@color/white_main</color>

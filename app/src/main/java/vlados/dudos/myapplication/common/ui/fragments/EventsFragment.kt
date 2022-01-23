@@ -19,7 +19,7 @@ class EventsFragment : Fragment() {
             "Rikardo fight",
             "Are you ready to smell his underpants?",
             "https://i0.wp.com/cdn140.picsart.com/300840060233211.png",
-            "Win: +10 Cum /sec\nLose: -10 Cum /sec",
+            "Win: +10 Cum /click\nLose: -10 Cum /click",
             "https://steamuserimages-a.akamaihd.net/ugc/949596928134142092/4C0E46016EE7ABF8440FCA7B9B5AB60EF55AA969/"
         )
     )
