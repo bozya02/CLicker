@@ -33,7 +33,7 @@ class AuthFragment : Fragment() {
         onClick()
     }
 
-    private fun onClick(){
+    private fun onClick() {
         b.btnToReg.setOnClickListener {
             (activity as LoginActivity).fragmentTransaction(RegistrationFragment())
         }
