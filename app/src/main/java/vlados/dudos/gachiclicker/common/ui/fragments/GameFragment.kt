@@ -1,4 +1,4 @@
-package vlados.dudos.myapplication.common.ui.fragments
+package vlados.dudos.gachiclicker.common.ui.fragments
 
 import android.media.AudioManager
 import android.media.SoundPool
@@ -8,13 +8,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import vlados.dudos.myapplication.common.Case.cumPerClick
-import vlados.dudos.myapplication.common.Case.updateCurrentCum
-import vlados.dudos.myapplication.common.ui.activity.GameActivity
-import vlados.dudos.myapplication.R
-import vlados.dudos.myapplication.app.App
-import vlados.dudos.myapplication.common.Case.clicks
-import vlados.dudos.myapplication.databinding.FragmentGameBinding
+import vlados.dudos.gachiclicker.common.Case.cumPerClick
+import vlados.dudos.gachiclicker.common.Case.updateCurrentCum
+import vlados.dudos.gachiclicker.common.ui.activity.GameActivity
+import vlados.dudos.gachiclicker.R
+import vlados.dudos.gachiclicker.app.App
+import vlados.dudos.gachiclicker.common.Case.clicks
+import vlados.dudos.gachiclicker.databinding.FragmentGameBinding
 
 class GameFragment : Fragment() {
 

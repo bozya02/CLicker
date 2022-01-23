@@ -1,7 +1,7 @@
-package vlados.dudos.myapplication.app
+package vlados.dudos.gachiclicker.app
 
 import android.app.Application
-import vlados.dudos.myapplication.data.DataManager
+import vlados.dudos.gachiclicker.data.DataManager
 
 class App : Application() {
     companion object {

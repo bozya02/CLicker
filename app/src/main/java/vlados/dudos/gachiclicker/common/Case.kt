@@ -1,8 +1,8 @@
-package vlados.dudos.myapplication.common
+package vlados.dudos.gachiclicker.common
 
-import vlados.dudos.myapplication.app.App
-import vlados.dudos.myapplication.common.ui.models.Boss
-import vlados.dudos.myapplication.common.ui.models.ShopItem
+import vlados.dudos.gachiclicker.app.App
+import vlados.dudos.gachiclicker.common.ui.models.Boss
+import vlados.dudos.gachiclicker.common.ui.models.ShopItem
 import java.math.RoundingMode
 import java.text.DecimalFormat
 import kotlin.math.pow

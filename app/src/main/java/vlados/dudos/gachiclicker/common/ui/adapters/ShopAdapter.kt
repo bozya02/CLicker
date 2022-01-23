@@ -1,4 +1,4 @@
-package vlados.dudos.myapplication.common.ui.adapters
+package vlados.dudos.gachiclicker.common.ui.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,18 +7,18 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import vlados.dudos.myapplication.common.Case.currentCum
-import vlados.dudos.myapplication.common.Case.priceCPC
-import vlados.dudos.myapplication.common.Case.updateCPC
-import vlados.dudos.myapplication.common.Case.updateCPS
-import vlados.dudos.myapplication.common.Case.updateCurrentCum
-import vlados.dudos.myapplication.common.Case.updateDick
-import vlados.dudos.myapplication.R
-import vlados.dudos.myapplication.common.Case.cutNum
-import vlados.dudos.myapplication.common.Case.updateCocktail
-import vlados.dudos.myapplication.common.Case.updateRikardo
-import vlados.dudos.myapplication.databinding.ShopItemBinding
-import vlados.dudos.myapplication.common.ui.models.ShopItem
+import vlados.dudos.gachiclicker.common.Case.currentCum
+import vlados.dudos.gachiclicker.common.Case.priceCPC
+import vlados.dudos.gachiclicker.common.Case.updateCPC
+import vlados.dudos.gachiclicker.common.Case.updateCPS
+import vlados.dudos.gachiclicker.common.Case.updateCurrentCum
+import vlados.dudos.gachiclicker.common.Case.updateDick
+import vlados.dudos.gachiclicker.R
+import vlados.dudos.gachiclicker.common.Case.cutNum
+import vlados.dudos.gachiclicker.common.Case.updateCocktail
+import vlados.dudos.gachiclicker.common.Case.updateRikardo
+import vlados.dudos.gachiclicker.databinding.ShopItemBinding
+import vlados.dudos.gachiclicker.common.ui.models.ShopItem
 
 class ShopAdapter(
     private val context: Context,

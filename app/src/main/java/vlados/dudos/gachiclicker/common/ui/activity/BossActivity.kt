@@ -1,19 +1,18 @@
-package vlados.dudos.myapplication.common.ui.activity
+package vlados.dudos.gachiclicker.common.ui.activity
 
-import android.media.AudioAttributes
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.CountDownTimer
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
-import vlados.dudos.myapplication.R
-import vlados.dudos.myapplication.common.Case.bossImage
-import vlados.dudos.myapplication.common.Case.bossRikardo
-import vlados.dudos.myapplication.common.Case.updateCPC
-import vlados.dudos.myapplication.common.Case.updateCPS
-import vlados.dudos.myapplication.common.ui.models.Boss
-import vlados.dudos.myapplication.databinding.ActivityBossBinding
+import vlados.dudos.gachiclicker.R
+import vlados.dudos.gachiclicker.common.Case.bossImage
+import vlados.dudos.gachiclicker.common.Case.bossRikardo
+import vlados.dudos.gachiclicker.common.Case.updateCPC
+import vlados.dudos.gachiclicker.common.Case.updateCPS
+import vlados.dudos.gachiclicker.common.ui.models.Boss
+import vlados.dudos.gachiclicker.databinding.ActivityBossBinding
 import kotlin.random.Random.Default.nextInt
 
 

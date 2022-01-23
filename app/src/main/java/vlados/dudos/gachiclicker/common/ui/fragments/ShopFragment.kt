@@ -1,4 +1,4 @@
-package vlados.dudos.myapplication.common.ui.fragments
+package vlados.dudos.gachiclicker.common.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,12 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import vlados.dudos.myapplication.common.Case.shopList
-import vlados.dudos.myapplication.common.ui.activity.GameActivity
-import vlados.dudos.myapplication.R
-import vlados.dudos.myapplication.common.ui.adapters.ShopAdapter
-import vlados.dudos.myapplication.databinding.FragmentShopBinding
-import vlados.dudos.myapplication.common.ui.models.ShopItem
+import vlados.dudos.gachiclicker.common.Case.shopList
+import vlados.dudos.gachiclicker.common.ui.activity.GameActivity
+import vlados.dudos.gachiclicker.R
+import vlados.dudos.gachiclicker.common.ui.adapters.ShopAdapter
+import vlados.dudos.gachiclicker.databinding.FragmentShopBinding
+import vlados.dudos.gachiclicker.common.ui.models.ShopItem
 
 class ShopFragment : Fragment(), ShopAdapter.OnClickListener {
 

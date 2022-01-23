@@ -1,4 +1,4 @@
-package vlados.dudos.myapplication.common.ui.activity
+package vlados.dudos.gachiclicker.common.ui.activity
 
 import android.app.KeyguardManager
 import android.content.Context
@@ -11,9 +11,8 @@ import android.os.CancellationSignal
 import android.os.Handler
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
-import vlados.dudos.myapplication.common.ui.activity.GameActivity
-import vlados.dudos.myapplication.app.App
-import vlados.dudos.myapplication.databinding.ActivityLogBinding
+import vlados.dudos.gachiclicker.app.App
+import vlados.dudos.gachiclicker.databinding.ActivityLogBinding
 
 class LogActivity : AppCompatActivity() {
 
@@ -55,7 +54,9 @@ class LogActivity : AppCompatActivity() {
         finishAffinity()
     }
     private fun successfulEnter() {
-        startActivity(Intent(this, GameActivity::class.java))
+        if (!App.dm.isLogin())
+            startActivity(Intent(this, LoginActivity::class.java))
+        else startActivity(Intent(this, GameActivity::class.java))
     }
 
     private fun notifyUser(message: String) {

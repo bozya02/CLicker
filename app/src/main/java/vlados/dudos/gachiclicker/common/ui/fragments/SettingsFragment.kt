@@ -1,13 +1,13 @@
-package vlados.dudos.myapplication.common.ui.fragments
+package vlados.dudos.gachiclicker.common.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import vlados.dudos.myapplication.R
-import vlados.dudos.myapplication.app.App
-import vlados.dudos.myapplication.databinding.FragmentSettingsBinding
+import vlados.dudos.gachiclicker.R
+import vlados.dudos.gachiclicker.app.App
+import vlados.dudos.gachiclicker.databinding.FragmentSettingsBinding
 
 class SettingsFragment : Fragment() {
 

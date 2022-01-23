@@ -1,14 +1,14 @@
-package vlados.dudos.myapplication.common.ui.fragments
+package vlados.dudos.gachiclicker.common.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import vlados.dudos.myapplication.R
-import vlados.dudos.myapplication.common.ui.adapters.EventsAdapter
-import vlados.dudos.myapplication.common.ui.models.Event
-import vlados.dudos.myapplication.databinding.FragmentEventsBinding
+import vlados.dudos.gachiclicker.R
+import vlados.dudos.gachiclicker.common.ui.adapters.EventsAdapter
+import vlados.dudos.gachiclicker.common.ui.models.Event
+import vlados.dudos.gachiclicker.databinding.FragmentEventsBinding
 
 class EventsFragment : Fragment() {
 

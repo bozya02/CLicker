@@ -1,4 +1,4 @@
-package vlados.dudos.myapplication.data
+package vlados.dudos.gachiclicker.data
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -31,4 +31,11 @@ class DataManager(private val baseContext: Context) {
 
     //set price
     fun setPrice(str: String, num: Long) = shared.edit().putLong(str, num).apply()
+
+    //authorisation
+    fun isLogin(): Boolean = shared.getBoolean("isLogin", false)
+
+    fun endLogin(): Boolean = shared.edit().putBoolean("isLogin", true).commit()
+
+    fun logout(): Boolean = shared.edit().putBoolean("isLogin", false).commit()
 }

@@ -1,4 +1,4 @@
-package vlados.dudos.myapplication.common.ui.adapters
+package vlados.dudos.gachiclicker.common.ui.adapters
 
 import android.content.Context
 import android.content.Intent
@@ -7,11 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import vlados.dudos.myapplication.R
-import vlados.dudos.myapplication.common.Case.bossImage
-import vlados.dudos.myapplication.common.ui.activity.BossActivity
-import vlados.dudos.myapplication.common.ui.models.Event
-import vlados.dudos.myapplication.databinding.EventViewBinding
+import vlados.dudos.gachiclicker.R
+import vlados.dudos.gachiclicker.common.Case.bossImage
+import vlados.dudos.gachiclicker.common.ui.activity.BossActivity
+import vlados.dudos.gachiclicker.common.ui.models.Event
+import vlados.dudos.gachiclicker.databinding.EventViewBinding
 
 class EventsAdapter(private var context: Context, private var list: List<Event>) :
     RecyclerView.Adapter<EventsAdapter.ViewHolder>() {

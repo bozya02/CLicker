@@ -1,4 +1,4 @@
-package vlados.dudos.myapplication.common.ui.models
+package vlados.dudos.gachiclicker.common.ui.models
 
 data class Event (
     var id: Int,
