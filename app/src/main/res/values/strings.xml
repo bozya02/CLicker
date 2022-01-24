@@ -25,4 +25,5 @@
     <string name="your_nickname">Your Nickname</string>
     <string name="end_reg">Завершить регистрацию</string>
     <string name="forgot_password">Forgot password?</string>
+    <string name="logout">LogOut</string>
 </resources>

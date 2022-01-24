@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.15" />
+        app:layout_constraintGuide_percent="0.10"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layout_input_email"
@@ -89,7 +89,7 @@
         android:layout_height="wrap_content"
         android:text="@string/forgot_password"
         android:textSize="18sp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:textColor="@color/grey_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
