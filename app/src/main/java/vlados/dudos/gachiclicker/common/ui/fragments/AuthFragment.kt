@@ -56,6 +56,7 @@ class AuthFragment : Fragment() {
                             val user = auth.currentUser
                             updateUI(user)
                             App.dm.endLogin()
+                            App.dm.setUserMail(user?.email.toString())
                             startActivity(Intent(requireActivity(), GameActivity::class.java))
                         } else {
                             Log.w(ContentValues.TAG, "signInWithEmail:failure", task.exception)

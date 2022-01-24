@@ -5,9 +5,11 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.google.firebase.firestore.FirebaseFirestore
 import io.reactivex.Observable
 import io.reactivex.disposables.Disposable
 import vlados.dudos.gachiclicker.R
+import vlados.dudos.gachiclicker.app.App
 import vlados.dudos.gachiclicker.common.Case.clicks
 import vlados.dudos.gachiclicker.common.Case.cumPerClick
 import vlados.dudos.gachiclicker.common.Case.cumPerSecond
@@ -33,6 +35,7 @@ class GameActivity : AppCompatActivity() {
 
 
         b = ActivityGameBinding.inflate(layoutInflater)
+        getUserCum(App.dm.getUserMail())
         updateDate()
         fragmentTransaction(GameFragment())
         setContentView(b.root)
@@ -118,6 +121,19 @@ class GameActivity : AppCompatActivity() {
         if (!mediaPlayer.isPlaying){
             mediaPlayer.start()
         }
+    }
+    private fun getUserCum(str: String){
+        val fireBaseFS = FirebaseFirestore.getInstance()
+        fireBaseFS.collection("Users").document("user:$str")
+            .get()
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful){
+                    val userData = task.result?.data
+                    cumPerClick = userData?.get("cpc").toString().toInt()
+                    cumPerSecond = userData?.get("cps").toString().toLong()
+                    currentCum = userData?.get("currentCum").toString().toLong()
+                }
+            }
     }
 }
 

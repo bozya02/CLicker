@@ -10,9 +10,6 @@ class DataManager(private val baseContext: Context) {
         shared = baseContext.getSharedPreferences("cum", Context.MODE_PRIVATE)
     }
     //get stats
-    fun getCPS() : Long = shared.getLong("cps", 0)
-    fun getCPC() : Int = shared.getInt("cpc", 1)
-    fun getCurrentCum() : Long = shared.getLong("current", 0)
     fun getPriceCPC() : Long = shared.getLong("cpc_price", 250)
     fun getPriceDick() : Long = shared.getLong("dick", 500)
     fun getRikardoPrice() : Long = shared.getLong("rikardo", 15000)
@@ -38,4 +35,7 @@ class DataManager(private val baseContext: Context) {
     fun endLogin() = shared.edit().putBoolean("isLogin", true).apply()
 
     fun logout(): Boolean = shared.edit().putBoolean("isLogin", false).commit()
+
+    fun getUserMail() : String = shared.getString("mail", "")!!
+    fun setUserMail(str: String) = shared.edit().putString("mail", str).commit()
 }

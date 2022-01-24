@@ -48,7 +48,7 @@ class RegistrationFragment : Fragment() {
             val nick = b.inputNick.text.toString()
             val mail = b.inputEmail.text.toString()
             val password = b.inputPassword.text.toString()
-            var userBase = User(nick, mail, "0", "1", "0")
+            val userBase = User(nick, mail, "0", "1", "0")
 
             if (checkInput()) {
                 auth.createUserWithEmailAndPassword(mail, password)
@@ -58,13 +58,12 @@ class RegistrationFragment : Fragment() {
                             val user = auth.currentUser
                             updateUI(user)
 
-                            store.collection("Users")
-                                .add(userBase)
+                            store.collection("Users").document("user:$mail")
+                                .set(userBase)
                                 .addOnCompleteListener { d ->
-                                    if (d.isSuccessful){
+                                    if (d.isSuccessful) {
                                         (activity as LoginActivity).fragmentTransaction(AuthFragment())
-                                    }
-                                    else makeToast(d.exception!!.message.toString())
+                                    } else makeToast(d.exception!!.message.toString())
                                 }
                         } else {
                             Log.w(TAG, "createUserWithEmail:failure", task.exception)

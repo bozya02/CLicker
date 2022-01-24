@@ -3,11 +3,11 @@ package vlados.dudos.gachiclicker.common.ui.fragments
 import android.media.AudioManager
 import android.media.SoundPool
 import android.os.Bundle
-import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.google.firebase.firestore.FirebaseFirestore
 import vlados.dudos.gachiclicker.common.Case.cumPerClick
 import vlados.dudos.gachiclicker.common.Case.updateCurrentCum
 import vlados.dudos.gachiclicker.common.ui.activity.GameActivity
@@ -39,6 +39,15 @@ class GameFragment : Fragment() {
 
         checkSound()
         onClick()
+    }
+
+    private fun getUser() {
+        val fireBaseStore = FirebaseFirestore.getInstance()
+        val user = fireBaseStore.collection("Users").document("")
+            .get()
+            .addOnSuccessListener { result ->
+
+            }
     }
 
     private fun onClick() {
