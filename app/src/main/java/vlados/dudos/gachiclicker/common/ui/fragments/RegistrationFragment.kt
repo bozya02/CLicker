@@ -1,6 +1,8 @@
 package vlados.dudos.gachiclicker.common.ui.fragments
 
+import android.content.ContentValues.TAG
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
@@ -8,8 +10,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.FirebaseFirestore
 import vlados.dudos.gachiclicker.R
+import vlados.dudos.gachiclicker.app.App
 import vlados.dudos.gachiclicker.common.ui.activity.LoginActivity
 import vlados.dudos.gachiclicker.common.ui.models.User
 import vlados.dudos.gachiclicker.databinding.FragmentRegBinding
@@ -18,6 +22,7 @@ class RegistrationFragment : Fragment() {
 
     private lateinit var b: FragmentRegBinding
     private var auth: FirebaseAuth = FirebaseAuth.getInstance()
+    private var store = FirebaseFirestore.getInstance()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -43,29 +48,46 @@ class RegistrationFragment : Fragment() {
             val nick = b.inputNick.text.toString()
             val mail = b.inputEmail.text.toString()
             val password = b.inputPassword.text.toString()
+            var userBase = User(nick, mail, "0", "1", "0")
 
             if (checkInput()) {
-                auth.createUserWithEmailAndPassword(
-                    mail,
-                    password
-                )
-                    .addOnCompleteListener { task ->
+                auth.createUserWithEmailAndPassword(mail, password)
+                    .addOnCompleteListener(requireActivity()) { task ->
                         if (task.isSuccessful) {
-                            val user = User(nick, mail, password, 0, 1, 0)
-                            FirebaseDatabase.getInstance().getReference("Users")
-                                .child(FirebaseAuth.getInstance().currentUser!!.uid)
-                                .setValue(user).addOnCompleteListener { task ->
-                                    if (task.isSuccessful) {
-                                        makeToast("You have been register successfully")
+                            Log.d(TAG, "createUserWithEmail:success")
+                            val user = auth.currentUser
+                            updateUI(user)
+
+                            store.collection("Users")
+                                .add(userBase)
+                                .addOnCompleteListener { d ->
+                                    if (d.isSuccessful){
+                                        (activity as LoginActivity).fragmentTransaction(AuthFragment())
                                     }
-                                    else makeToast("Something went wrong")
+                                    else makeToast(d.exception!!.message.toString())
                                 }
-
-                        } else makeToast(task.exception!!.message.toString())
+                        } else {
+                            Log.w(TAG, "createUserWithEmail:failure", task.exception)
+                            makeToast("Authentication failed.")
+                            updateUI(null)
+                        }
                     }
-
-                (activity as LoginActivity).fragmentTransaction(AuthFragment())
             }
+
+//                    .addOnCompleteListener { task ->
+//                        if (task.isSuccessful) {
+//                            val user = User(nick, mail, password, "0", "1", "0")
+//                            FirebaseFirestore.getInstance().collection("Users")
+//                                .add(user)
+//                                .addOnSuccessListener { documentReference ->
+//                                    Log.d(TAG,"DocumentSnapshot added with ID: " + documentReference.id)
+//                                }
+//                                .addOnFailureListener { e ->
+//                                    Log.w(TAG, "Error adding document", e)
+//                                }
+//
+//                        } else makeToast(task.exception!!.message.toString())
+//                    }
         }
     }
 
@@ -85,5 +107,12 @@ class RegistrationFragment : Fragment() {
 
     private fun makeToast(m: String) {
         Toast.makeText(activity, m, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun updateUI(account: FirebaseUser?) {
+        if (account != null)
+            makeToast("Successfully Registered ")
+        else makeToast("You didn't signed up")
+
     }
 }

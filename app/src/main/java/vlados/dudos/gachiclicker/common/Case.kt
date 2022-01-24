@@ -78,7 +78,7 @@ object Case {
         return df.format(num/1000.0.pow(specialIndex)) + letterList[specialIndex]
     }
     var shopList: List<ShopItem> = listOf(ShopItem("https://pngimg.com/uploads/medical_gloves/medical_gloves_PNG39.png", "Мassаж простаты", "+1 cum /клик", 0, priceCPC),
-    ShopItem("https://www.seekpng.com/png/full/12-120961_up-arrow-png-picture-up-arrow-png.png", nameItem = "Улучшение DICK", "+2 cum /секунду", 2, dickPrice),
+    ShopItem("https://www.pngrepo.com/png/323562/512/upgrade.png", nameItem = "Улучшение DICK", "+2 cum /секунду", 2, dickPrice),
     ShopItem("https://cdn130.picsart.com/287487439000211.png", "Пофлексить с Рикардо", "+15 cum /секунду", 15, rikardoPrice),
     ShopItem("https://img.icons8.com/ios-filled/344/bar.png", "Start celebrating", "+50 cum /секунду", 50, cocktailPrice))
 }

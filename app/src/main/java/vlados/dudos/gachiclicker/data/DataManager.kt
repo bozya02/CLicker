@@ -35,7 +35,7 @@ class DataManager(private val baseContext: Context) {
     //authorisation
     fun isLogin(): Boolean = shared.getBoolean("isLogin", false)
 
-    fun endLogin(): Boolean = shared.edit().putBoolean("isLogin", true).commit()
+    fun endLogin() = shared.edit().putBoolean("isLogin", true).apply()
 
     fun logout(): Boolean = shared.edit().putBoolean("isLogin", false).commit()
 }
