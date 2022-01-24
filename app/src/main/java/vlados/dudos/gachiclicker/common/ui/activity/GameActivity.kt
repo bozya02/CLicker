@@ -29,6 +29,7 @@ class GameActivity : AppCompatActivity() {
     private lateinit var b: ActivityGameBinding
     private lateinit var thread: Disposable
     private lateinit var mediaPlayer: MediaPlayer
+    private val fireBaseFS = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -123,7 +124,6 @@ class GameActivity : AppCompatActivity() {
         }
     }
     private fun getUserCum(str: String){
-        val fireBaseFS = FirebaseFirestore.getInstance()
         fireBaseFS.collection("Users").document("user:$str")
             .get()
             .addOnCompleteListener { task ->
