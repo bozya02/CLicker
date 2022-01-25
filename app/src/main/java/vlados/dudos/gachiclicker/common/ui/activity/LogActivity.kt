@@ -17,6 +17,7 @@ import vlados.dudos.gachiclicker.databinding.ActivityLogBinding
 class LogActivity : AppCompatActivity() {
 
     private var cancellationSignal: CancellationSignal? = null
+    private val bioState = App.dm.getBioState()
     private val authenticationCallback: BiometricPrompt.AuthenticationCallback
         get() =
             object : BiometricPrompt.AuthenticationCallback() {
@@ -42,7 +43,7 @@ class LogActivity : AppCompatActivity() {
         checkBiometricSupport()
         onClick()
         Handler().postDelayed({
-            if (App.dm.getBioState()){
+            if (bioState){
                 openBiometry()
             }
             else successfulEnter()
@@ -105,7 +106,8 @@ class LogActivity : AppCompatActivity() {
     }
     private fun onClick(){
         b.imgBilly.setOnClickListener {
-            openBiometry()
+            if (bioState)
+                openBiometry()
         }
     }
 }
